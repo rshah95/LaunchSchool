@@ -1,0 +1,52 @@
+1. function returning sum of two numbers
+
+START 
+
+GET number one from user and SET to variable
+
+GET number two from user and SET to variable
+
+ADD numbers and PRINT output
+
+2. Takes array of strings and returns all strings in array concatenated
+
+START
+
+SET array = array of strings
+
+SET string = array[0]
+
+ITERATE through array and add each string to the new string variable
+
+PRINT string variable
+
+3. a method that takes an array of integers, and returns a new array with every other element from the original array, starting with the first element
+
+Declare a function that takes an array as argument
+
+  Initialize empty array
+
+  Iterate through array 
+    - check value is integer
+    - first value added to new array
+    - if not first value, only add next value to array if integer and if iterator % 2 is 0
+
+  Return new array
+
+Call function with desired array 
+Print returned array
+
+
+4. a function that determines the index of the 3rd occurrence of a given character in a string.
+
+Declare function that takes character as input
+  - Confirm input is single character
+  - initialize varaible to act as counter
+  - initialize variable to represent string index
+  - iterate through string 
+    - if value equals input character, add one to counter
+      - check counter to see if counter = 3
+      - if counter = 3, set string index to iterator + 1
+  - If string index variable does not equal undefined, return value
+    - else return null 
+

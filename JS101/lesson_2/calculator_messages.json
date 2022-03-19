@@ -1,0 +1,29 @@
+{
+  "eng" : {
+    "welcome" : "Welcome to Calculator!",
+    "invalid" : "Invalid input. Try again.",
+    "question_1": "What's the first number?", 
+    "question_2" : "What's the second number?",
+    "operation" : "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide ",
+    "repeat" : "Would you like to perform another calculation? (yes/no)",
+    "result" : "The result is"
+  },
+  "esp" : {
+    "welcome" : "¡Bienvenido a Calculadora!",
+    "invalid" : "Entrada inválida. Intentar otra vez.",
+    "question_1": "¿Cual es el primer numero?", 
+    "question_2" : "¿Cual es el segundo numero?",
+    "operation" : "¿Qué operación le gustaría realizar?\n1) Agregar 2) Sustraer 3) Multiplicar 4) Dividir ",
+    "repeat" : "¿Desea realizar otro cálculo? (si/no)",
+    "result" : "El resultado es"
+  },
+  "fn" : {
+    "welcome" : "Bienvenue sur Calculatrice !",
+    "invalid" : "Entrée invalide. Réessayer.",
+    "question_1": "Quel est le premier numéro ?", 
+    "question_2" : "Quel est le deuxième numéro ?",
+    "operation" : "Quelle opération souhaitez-vous effectuer ?\n1) Ajouter 2) Soustraire 3) Multiplier 4) Divisir",
+    "repeat" : "Souhaitez-vous effectuer un autre calcul ? (oui/non)",
+    "result" : "Le résultat est"
+  }
+}
