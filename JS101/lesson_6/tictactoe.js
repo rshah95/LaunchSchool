@@ -79,8 +79,8 @@ function convertToValidInput(input, validChoices) {
       input = readline.question();
     }
   } while (valid === false);
+  
   input = input[0].toUpperCase() + input.substring(1);
-  console.log(input);
   return input;
 }
 
@@ -135,7 +135,7 @@ function initializeBoard() {
 }
 
 function emptySquares(board) {
-  return Object.keys(board).filter(key => board[key] === ' ');
+  return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
 }
 
 function playerChoosesSquare(board) {

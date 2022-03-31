@@ -1,0 +1,70 @@
+// Understand the Problem 
+
+input : one round of game, followed by input of whether user wants to play another game (string)
+
+output : string - result of game + prompt for another game 
+
+Questions: 
+
+
+High-level pseudocode: 
+
+1. greet user + display game information
+
+2. Distribute and display cards to User + computer
+
+3. Execute User turn
+  a) calculate total for user
+    - requires function bc of aces
+  b) display total to user
+  c) prompt user to hit or stay
+    - if hit, distribute another card
+      - calculate and display total
+      - identify if bust - if bust, skip to step 5
+      - if not bust, repeat c)
+
+4. Execute computer turn (if not skipped)
+  a) calculate computer total
+  b) display computer total 
+  c) if total < 17, hit
+  d) repeat a-c while necessary
+
+5. Identify and display winner
+  a) if player bust, computer winner
+  b) if computer bust, player win
+  c) if no bust, whoever has greatest score wins 
+
+6. Track score of rounds won
+
+7. ask user if they want to play again
+  - if yes, loop back to step 2
+
+8. display farewell - exit program
+
+
+// Examples and test cases 
+
+full test case not provided
+
+
+// Data Structures
+
+ - Deck of Cards structured in Object
+   each round conducted by making copy of object into array with Object.entries()
+
+ - Scoreboard stored in an object and dispalyed at the end of each round 
+
+ - Totals of each hand stored in an array for each individual game 
+
+
+// Algorithms
+
+ - Pick card to give to player by generating random number for suit (1 - 4) and random number for each card (1 - 13)
+ - Remove card from deck so it can not be distributed twice within a round 
+
+ - Card value designation 
+   - 1 - 9 worth value
+   - 1-, J , Q , K worth 10 
+   - A worth 11 unless it moves total over 21 --> then worth 1
+     - if worth 1 and still puts total over 21, then bust
+   
