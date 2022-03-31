@@ -42,7 +42,8 @@ function convertToValidInput(input, validChoices) {
   let valid = false;
   do {
     for (let choice of validChoices) {
-      if (input === choice.substring(0, input.length)) {
+      if (input === choice.substring(0, input.length) && input.length > 0) {
+        console.log(input.length);
         input = choice;
         valid = true;
         break;
@@ -247,6 +248,12 @@ function resetScoreboard() {
   return scoreboard;
 }
 
+function resetDeck(deckForRound) { //restore deck at end of eeach round
+  deckForRound = Object.entries(DECK_OF_CARDS);
+  return deckForRound;
+}
+
+
 function displayFarewell() {
   console.log('\n');
   prompt("Thanks for playing 21 - see you next time!");
@@ -257,7 +264,6 @@ console.clear();
 displayGreeting();
 let scoreboard = {Player: 0, Dealer: 0};
 let userContinue;
-let matchStatus = 'incomplete';
 
 // round loop - best-of-5 games, with scoreboard
 while (true) {
@@ -279,12 +285,14 @@ while (true) {
       completeDealerTurn(roundHands, deckForRound, scores);
     }
 
-    // identify and display winner Winner
+    // identify and display winner
     let winner = identifyWinner(scores);
     updateScoreboard(winner, scoreboard);
     displayWinnerAndScoreboard(winner, scoreboard, scores);
+    resetDeck(deckForRound);
 
     // check if match (best of 5) is complete and display winner
+    let matchStatus = 'incomplete';
     let matchWinner = identifyMatchWinner(scoreboard);
     if (matchWinner) {
       displayMatchWinner(matchWinner);
