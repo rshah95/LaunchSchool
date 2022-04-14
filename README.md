@@ -1,1 +1,1 @@
-Main Launch School Repo
+Repo for all things LaunchSchool
