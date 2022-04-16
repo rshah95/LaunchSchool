@@ -71,9 +71,12 @@ function altlongestSubstringOf(s){
     }
     unique.push(v)
     !acc.includes(unique.length) && acc.push(unique.length)
-    return acc
+    console.log(acc);
+    return acc;
   }, [])
   return Math.max(...result)
 }
 
 // learn about reduce here
+
+console.log(altlongestSubstringOf("baacab"));
