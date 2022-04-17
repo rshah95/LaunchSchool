@@ -1,0 +1,10 @@
+/*
+Problem: 
+
+*/
+
+function isValidMessage(string) {
+  
+
+
+}
