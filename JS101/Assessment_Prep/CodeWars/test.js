@@ -1,8 +1,2 @@
-var o = {
-  name: 'student'
-};
-o.self = o; // o = {name: student, self: {name: student}}
-console.log(o.se);
-o.self.self = {};
-
-console.log(o);
+let arr = ['a', 'b', {c: 'foo'}];
+console.log(arr.includes({c: 'foo'}));
