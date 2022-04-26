@@ -15,8 +15,6 @@ Data Structures:
 array of divisible numbers
 
 Algorithm:
-if length of string is odd, return [string, 1]
-if length of string is even,
   construct array of divisible numbers between 1-length / 2
   for each divisible number, check if string is repeat of first (divisibl number) elements of string
     if is repeat, return substring and substring length
@@ -33,8 +31,6 @@ function repeatedSubstring(string) {
     }
   }
 
-  console.log(divisibleNumbers);
-
   for (let idx = 0; idx < divisibleNumbers.length; idx++) {
     let substring = string.substring(0, divisibleNumbers[idx]);
     let stringCheck = string.split(substring);
@@ -47,3 +43,15 @@ function repeatedSubstring(string) {
 console.log(repeatedSubstring('abababab')); 
 console.log(repeatedSubstring("abcde"));
 console.log(repeatedSubstring("adad"));
+
+
+function repeatedSubstring2(string) {
+  for (let count = 1; count <= string.length / 2; count++) {
+    let idx = count - 1;
+    if (string.length % count === 0) {
+      let substring = string.substring(0, count);
+      if (substring.repeat(string.length / count) === string) return [substring, string.length / substring.length];
+    }
+  }
+  return [string, 1];
+}

@@ -96,8 +96,6 @@ function isValidMessage2(string) {
     } else pairs[pairs.length - 1] += char;
   });
 
-  console.log(pairs);
-
   return pairs.every(set => {
     let numberArr = set.split('').filter(num => !Number.isNaN(Number(num)));
     number = Number(set.substring(0, numberArr.length))
