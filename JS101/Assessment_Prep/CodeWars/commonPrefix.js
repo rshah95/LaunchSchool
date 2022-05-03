@@ -34,3 +34,5 @@ function commonPrefix(array) {
 
 console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl');
 console.log(commonPrefix(['dog', 'racecar', 'car']) === '');
+console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters');
+console.log(commonPrefix(['throne', 'throne', 'throne']) === 'throne');
