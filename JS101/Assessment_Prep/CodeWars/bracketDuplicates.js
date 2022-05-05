@@ -54,3 +54,47 @@ function stringParse(string) {
 console.log(stringParse("aaaabbcdefffffffg") === "aa[aa]bbcdeff[fffff]g")
 console.log(stringParse("boopdedoop") === "boopdedoop")
 console.log(stringParse("helloookat") === "helloo[o]kat")
+
+
+function stringParse(string) {
+  if (typeof string !== 'string') return 'Please enter a valid string';
+
+  let consecStrings = [];
+
+  string.split('').forEach((char, idx, arr) => {
+    if (arr[idx - 1] === char) {
+      consecStrings[consecStrings.length - 1] += char;
+    } else consecStrings.push(char)
+  });
+
+  consecStrings.forEach((str, idx) => {
+    if (str.length > 2) {
+      consecStrings[idx] = str.substring(0, 2) + '[' + str.substring(2) + ']';
+    }
+  });
+
+  return consecStrings.join(''); 
+}
+
+
+/*
+Algorithm:
+string validity check
+
+turn string into array
+declare array to hold consecutive strings
+
+iterate through array
+  if char same as previous char
+    add it to last element of consecutive array
+  else 
+    add as new element to consecutive array
+
+iterate through array of consecutive strings
+  if element length is > 2
+    add left brack before third element
+    add right bracket at end of element
+
+return concescutive strings array as a string
+
+*/

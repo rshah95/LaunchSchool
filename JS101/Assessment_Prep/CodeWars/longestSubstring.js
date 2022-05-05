@@ -62,8 +62,8 @@ console.log(longestSubstring("abcd".repeat(10)+"abcde"+"abcd".repeat(10)) === 5)
 
 
 function altlongestSubstringOf(s){
-  let unique = []
-  let idx = 0
+  let unique = [];
+  let idx = 0;
   const result = s.split('').reduce((acc, v) => {
     idx = unique.indexOf(v)
     if (idx !== -1) {
@@ -71,12 +71,43 @@ function altlongestSubstringOf(s){
     }
     unique.push(v)
     !acc.includes(unique.length) && acc.push(unique.length)
-    console.log(acc);
     return acc;
-  }, [])
-  return Math.max(...result)
+  }, []);
+  console.log(result);
+  return Math.max(...result);
 }
 
 // learn about reduce here
 
 console.log(altlongestSubstringOf("baacab"));
+
+
+
+function longestSubstringOf3(s) {
+  let uniqueStrings = [];
+
+  let strArr = s.split('');
+
+  for (let idx = 0; idx < strArr.length - 1; idx++) {
+    let str = strArr[idx];
+    let strIdx = idx + 1;
+
+    while (!str.includes(strArr[strIdx]) && strIdx <= strArr.length - 1) {
+      str += strArr[strIdx];
+      strIdx++;
+    }
+
+    uniqueStrings.push(str);
+  }
+ 
+  return uniqueStrings.sort((a, b) => b.length - a.length)[0].length;
+}
+
+/*
+Algorithm:
+declare array to hold all unique strings
+iterate from each letter of string until repeat
+  build string until repeat
+  when repeat, push string to unique string array
+
+*/

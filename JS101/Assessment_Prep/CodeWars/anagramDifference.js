@@ -77,3 +77,34 @@ console.log(anagramDifference("ab","cd") === 4);
 console.log(anagramDifference("aab","a") === 2);
 console.log(anagramDifference("a","aab") === 2);
 console.log(anagramDifference("codewars","hackerrank") === 10);
+
+
+function anagramDifference(string1, string2) {
+  let counter = 0;
+  [shortString, longString] = [string1, string2];
+
+  if (string2.length < string1.length) {
+    [shortString, longString] = [string2, string1];
+  }
+
+  for (let idx = 0; idx < shortString.length; idx++) {
+    if (longString.includes(shortString[idx])) {
+      longString = longString.replace(shortString[idx], '');
+    } else counter++;
+  }
+  return counter + longString.length;
+}
+
+/*
+algorithm:
+identify short and longstring
+initialize counter variable
+iterate through short string
+  if letter is present in long string
+    remove letter from long string
+  else increment counter by 1 
+
+return counter plus remaining letters in long string
+
+
+*/

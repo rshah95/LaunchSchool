@@ -29,7 +29,6 @@ function substringTest(string1, string2) {
   for (let charIdx = 0; charIdx < shortString.length; charIdx++) {
     for (let substringIdx = charIdx + 1; substringIdx <= shortString.length; substringIdx++) {
       let substring = shortString.substring(charIdx, substringIdx);
-      console.log(substring);
       if (longString.split(substring).length > 1 && substring.length > 1) return true;
     }
   }
