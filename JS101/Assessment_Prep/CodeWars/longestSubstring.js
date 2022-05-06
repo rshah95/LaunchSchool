@@ -111,3 +111,23 @@ iterate from each letter of string until repeat
   when repeat, push string to unique string array
 
 */
+
+
+/*
+You are given a string s. It's a string consisting of letters, numbers or symbols.
+Your task is to find the Longest substring consisting of unique characters in s, and return the length of it. 
+
+1 <= s.length <= 10^7
+All inputs are valid.
+
+
+Examples:
+longestSubstring("baacab") === 3);
+longestSubstring("abcd") === 4);
+longestSubstring("hchzvfrkmlnozjk") === 11);
+longestSubstring("!@#$%^&^%$#@!") === 7);
+longestSubstring("abcd".repeat(10)+"abcde"+"abcd".repeat(10)) === 5);
+
+*/
+
+
