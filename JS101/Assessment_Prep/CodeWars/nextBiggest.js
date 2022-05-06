@@ -63,11 +63,29 @@ function nextBiggerNum(num) {
 }
 
 
-console.log(nextBiggerNum(1432) === 2134);
-console.log(nextBiggerNum(12) === 21);
-console.log(nextBiggerNum(513) === 531);
-console.log(nextBiggerNum(2017) === 2071);
-console.log(nextBiggerNum(111) === -1);
-console.log(nextBiggerNum(531) === -1);
-console.log(nextBiggerNum(123456789) === 123456798);
-console.log(nextBiggerNum(2341) === 2413);
+console.log(nextBiggerNum2(1432) === 2134);
+console.log(nextBiggerNum2(12) === 21);
+console.log(nextBiggerNum2(513) === 531);
+console.log(nextBiggerNum2(2017) === 2071);
+console.log(nextBiggerNum2(111) === -1);
+console.log(nextBiggerNum2(531) === -1);
+console.log(nextBiggerNum2(123456789) === 123456798);
+console.log(nextBiggerNum2(2341) === 2413);
+
+
+function nextBiggerNum2(num) {
+  let digits = String(num).split('');
+  let maxNum = Number(digits.sort((a, b) => b - a).join(''));
+  let possibleNums = [];
+
+  num++;
+  while (num <= maxNum) {
+    let strNum = String(num);
+    if (digits.every(digit => strNum.includes(digit))) {
+      return num;
+    }
+    num++;
+  }
+
+  return -1;
+}
