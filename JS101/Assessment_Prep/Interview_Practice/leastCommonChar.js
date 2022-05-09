@@ -49,7 +49,6 @@ function leastCommonChar(str) {
     if (!uniqueChars.includes(char)) uniqueChars.push(char);
   });
 
-
   let freqUniqueChars = uniqueChars.map(char => {
      return str.split('').filter(filterChar => filterChar === char).length
   });
@@ -69,3 +68,20 @@ console.log(leastCommonChar("Peter Piper picked a peck of pickled peppers") ===
 console.log(leastCommonChar("Mississippi") === "m");
 console.log(leastCommonChar("Happy birthday!") === ' ');
 console.log(leastCommonChar("aaaaaAAAA") === 'a');
+
+
+
+function leastCommonChar2(string) {
+  let freqObj = {};
+
+  string.split('').forEach((char, idx) => {
+    if (freqObj[char.toLowerCase()] === undefined) {
+      freqObj[char.toLowerCase()] = [1, idx];
+    } else freqObj[char.toLowerCase()][0] += 1;
+  });
+
+  let sortArr = Object.entries(freqObj).sort((a, b) => a[1][0] - b[1][0]);
+  
+  return sortArr[0][0];
+  
+}
