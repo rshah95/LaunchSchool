@@ -93,13 +93,14 @@ class CardDeck {
 
 class TwentyOneGame {
   static MAX_SCORE = 21;
-  
+  static DEALER_HIT_THRESHOLD = 16;
+
   constructor() {
     this.player = new Player();
     this.dealer = new Dealer();
     this.cardDeck = new CardDeck();
     this.scoreboard = {player: 0, dealer: 0};
-  } 
+  }
 
   play() {
     console.clear();
@@ -305,7 +306,7 @@ class TwentyOneGame {
     this.displayHands(false);
     console.log(`\nYour total is ${this.player.hand.total} and the dealer's total is ${this.dealer.hand.total}.`);
 
-    while (this.dealer.hand.total <= 16) {
+    while (this.dealer.hand.total <= TwentyOneGame.DEALER_HIT_THRESHOLD) {
       console.log("Since the dealer's total is 16 or less, they will now hit.");
       readline.question('\nPress Enter to Continue:');
       this.hit('dealer', shuffledCards);
@@ -341,13 +342,13 @@ class TwentyOneGame {
   }
 
   identifyWinner() {
-    let playerTotal = this.player.hand.total;
-    let dealerTotal = this.dealer.hand.total;
-    if (playerTotal > TwentyOneGame.MAX_SCORE) {
+    let playerSum = this.player.hand.total;
+    let dealerSum = this.dealer.hand.total;
+    if (playerSum > TwentyOneGame.MAX_SCORE) {
       return 'dealer';
-    } else if (playerTotal > dealerTotal || dealerTotal > TwentyOneGame.MAX_SCORE) {
+    } else if (playerSum > dealerSum || dealerSum > TwentyOneGame.MAX_SCORE) {
       return 'player';
-    } else if (dealerTotal > playerTotal) {
+    } else if (dealerSum > playerSum) {
       return 'dealer';
     } else return 'tie';
   }
