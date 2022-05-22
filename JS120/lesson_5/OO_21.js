@@ -92,12 +92,14 @@ class CardDeck {
 }
 
 class TwentyOneGame {
+  static MAX_SCORE = 21;
+  
   constructor() {
     this.player = new Player();
     this.dealer = new Dealer();
     this.cardDeck = new CardDeck();
     this.scoreboard = {player: 0, dealer: 0};
-  }
+  } 
 
   play() {
     console.clear();
@@ -115,7 +117,7 @@ class TwentyOneGame {
       this.displayHands(true); //boolean represents first time hands displayed
 
       this.playerTurn(shuffledCards);
-      if (this.player.hand.total <= 21) { //execute dealer turn if player does not bust
+      if (this.player.hand.total <= TwentyOneGame.MAX_SCORE) { //execute dealer turn if player does not bust
         readline.question("\nPress Enter to continue to the dealer's turn:");
         this.dealerTurn(shuffledCards);
       }
@@ -292,7 +294,7 @@ class TwentyOneGame {
       console.clear();
       this.displayHands(true);
 
-      if (this.player.hand.total > 21) break;
+      if (this.player.hand.total > TwentyOneGame.MAX_SCORE) break;
 
       hitDecision = this.yesOrNo(`\nYou have ${this.player.hand.total}. Would you like to hit again? (yes/no, abbreviations ok)`);
     }
@@ -328,7 +330,7 @@ class TwentyOneGame {
       } else total += Number(card[0]);
     });
 
-    if (acePresent && total > 21) total -= 10;
+    if (acePresent && total > TwentyOneGame.MAX_SCORE) total -= 10;
 
     return total;
   }
@@ -341,9 +343,9 @@ class TwentyOneGame {
   identifyWinner() {
     let playerTotal = this.player.hand.total;
     let dealerTotal = this.dealer.hand.total;
-    if (playerTotal > 21) {
+    if (playerTotal > TwentyOneGame.MAX_SCORE) {
       return 'dealer';
-    } else if (playerTotal > dealerTotal || dealerTotal > 21) {
+    } else if (playerTotal > dealerTotal || dealerTotal > TwentyOneGame.MAX_SCORE) {
       return 'player';
     } else if (dealerTotal > playerTotal) {
       return 'dealer';
@@ -366,11 +368,11 @@ class TwentyOneGame {
 
   printWinner(winner) {
     if (winner === 'player') {
-      if (this.dealer.hand.total > 21) {
+      if (this.dealer.hand.total > TwentyOneGame.MAX_SCORE) {
         console.log('\nThe dealer busted! You win!');
       } else console.log('\nYou have won this round!');
     } else if (winner === 'dealer') {
-      if (this.player.hand.total > 21) {
+      if (this.player.hand.total > TwentyOneGame.MAX_SCORE) {
         console.log('\nOops, you busted! Dealer wins!');
       } else console.log('\nYou have lost this round!');
     } else console.log('\nLooks like we have a tie - no one wins!');
