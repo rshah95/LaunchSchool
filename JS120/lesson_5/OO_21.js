@@ -49,6 +49,8 @@ class Participant {
 }
 
 class Player extends Participant {
+  static STARTING_CAPITAL = 100;
+
   constructor() {
     super();
     this.capital = 100; // capital = amount of money player has to play with
@@ -144,11 +146,11 @@ class TwentyOneGame {
     if (gambleModeOn) {
       if (this.player.capital === 0) {
         console.log('You lost all your money :( - Unfortunately you will have to leave!');
-      } else if (this.player.capital < 100) {
+      } else if (this.player.capital < Player.STARTING_CAPITAL) {
         console.log('Oh no, you lost money! Gambling is dangerous!');
-      } else if (this.player.capital > 100) {
+      } else if (this.player.capital > Player.STARTING_CAPITAL) {
         console.log("Nice, you won some cash! I guess the house doesn't always win...");
-      } else if (this.player.capital === 100) {
+      } else if (this.player.capital === Player.STARTING_CAPITAL) {
         console.log('Exiting break-even is never a bad decision.');
       }
 
